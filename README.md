@@ -12,6 +12,16 @@ This is a desktop application built to view online or offline videos in resizabl
 ### Prerequisites
 To start with this application, we need to install the Node JS and Node Package Manager (npm) which can be downloaded from this [link](https://nodejs.org). 
 
+For Linux or Ubuntu Node JS and npm can be installed through command. Open the Terminal and type the commands:
+(Make sure you have updated the apt-get)
+```
+sudo apt-get install nodejs
+```
+and 
+```
+sudo apt-get install npm
+```
+
 After installing NodeJS try excecting the command in Terminal or Command Prompt:
 ```
 node -v
