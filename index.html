@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Docker</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="input" >
+        <center>
+            <br><br>
+            ENTER THE YOUTUBE URL OR LOCAL MP4 VIDEO LOCATION
+            <br><br><br>
+            <input id="videoUrl" type="text" placeholder="URL here...">
+            <button id="loadVideo" onclick="fetchURL()">Play</button>
+            <br><br><br>
+            <p style="font-size: 13px; color: gray;">Hint: Youtube Url as : https://www.youtube.com/watch?v=kN1Czs0m1SU<br>
+            Local Video Url as : C:\Videos\abc.mp4</p>
+            <br>
+        </center>
+    </div>
+</body>
+<script>
+    const {ipcRenderer} = require('electron');
+    var videoUrl;
+    function fetchURL() {
+        videoUrl = document.getElementById('videoUrl').value;
+        // document.getElementById('video').setAttribute('src', videoUrl);
+        ipcRenderer.send('video:url', videoUrl);
+    }
+</script>
+</html>

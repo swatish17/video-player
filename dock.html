@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dock</title>
+    <style>
+        #videoFrame {
+            width: 100%;
+            height:calc(98vh - 35px);
+            min-height: 200px;
+            margin: 0;
+            padding: 0;
+            background-color: grey;
+        }
+        #drag {
+            float:right;
+            -webkit-app-region:drag;
+            width: 30px;
+            height:30px;
+            border-radius:5px; 
+            margin-bottom:5px;
+        }
+        #close {
+            float:right;
+            width: 30px;
+            height:30px;
+            border-radius:7px;
+            margin-bottom:5px;
+            margin-right:10px;
+        }
+    </style>
+</head>
+<body style="margin:0;">
+    
+    <img src="./images/drag.png" id="drag"/>
+    <img src="./images/close.png" onclick="closeWindow()" id="close"/>
+    
+    <div id="videoContent">
+        <!-- Place for the <video> or <iframe> tag based on the input url -->
+    </div>
+</body>
+    <script>    
+        const {ipcRenderer} = require('electron');
+        ipcRenderer.on('video', (e, videoURL) => {
+            loadVideoUrl(videoURL);
+        });
+    
+        function loadVideoUrl(videoURL) {
+            var url = videoURL;
+            let videoTag;
+            var videoid = videoURL.split('v=')[1];
+            console.log(videoid);
+            if(videoid != null) {
+                videoURL = 'https://www.youtube.com/embed/' + videoid;
+                videoTag = '<iframe id="videoFrame" frameborder="0" allowfullscreen></iframe>'
+            } else { 
+                videoTag = '<video id="videoFrame" controls="true" src="${videoURL}"></video>';
+            }   
+            document.getElementById('videoContent').innerHTML = videoTag;
+
+            // document.getElementById('videoFrame').setAttribute('src', 'https://www.youtube.com/embed/' + videoURL);
+            document.getElementById('videoFrame').setAttribute('src', videoURL);
+        }
+
+        function closeWindow() {
+            ipcRenderer.send('close:dockWindow', 'true');
+        }
+    </script>
+</html>

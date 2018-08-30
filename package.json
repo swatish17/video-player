@@ -1,0 +1,30 @@
+{
+  "name": "video-dock",
+  "version": "1.0.0",
+  "description": "Desktop video player dock",
+  "main": "index.js",
+  "build": {
+    "appId": "video.dock",
+    "linux": {
+      "icon": "./assets/icons/png/icon.png"
+    }, 
+    "win": {
+      "icon": "./assets/icons/win/icon.ico"
+    },
+    "mac": {
+      "icon": "./assets/icons/mac/icon.icns"
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "build"
+  },
+  "author": "swatish17",
+  "license": "ISC", 
+  "dependencies": {
+  },
+  "devDependencies": {
+    "electron": "^2.0.8",
+    "electron-builder": "^20.28.3"
+  }
+}
