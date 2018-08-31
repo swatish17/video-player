@@ -6,6 +6,9 @@ This is a desktop application built to view online or offline videos in resizabl
 * Paste the _URL_ or _path_ location
 * Enjoy !
 
+#### For Windows OS:
+Click [here](https://github.com/swatish17/video-dock/raw/master/dist/VideoDock%20Setup%201.0.0.exe) to download the setup file. Install the setup file to run the application.
+
 ## Steps to start
 
 
