@@ -1,5 +1,5 @@
 {
-  "name": "video-dock",
+  "name": "VideoDocker",
   "version": "1.0.0",
   "description": "Desktop video player dock",
   "main": "index.js",
