@@ -3,19 +3,83 @@
 <head>
     <title>Video Docker</title>
     <meta charset="utf-8" />
+    <style>
+    body {
+        background: linear-gradient(to bottom right, #FFA731, #F85963) no-repeat center fixed;
+        background-size: cover;
+    }
+    h1 {
+        margin-left: 20px;
+        font-family: title;
+        font-size: 40px;
+        color: #ffffff;
+    }
+    p {
+        font-family: hint;
+        color: #ffffff;
+    }
+    img {
+        float: right;
+        width: 100px;
+        height: 100px;
+        margin-right: 75px;
+        margin-top: 20px;
+    }
+    #videoUrl {
+        border-radius: 7px;
+        border-style: solid;
+        border-color: #ffffff;
+        padding: 10px; 
+        width: 500px;
+        text-align: center;
+        margin: 15px 0px;
+        color: #000;
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #loadVideo {
+        background-color: transparent;
+        border-color: #ffffff;
+        border-style: dashed;
+        border-width: 2px;
+        border-radius: 7px;
+        padding: 10px 40px;
+        font-family: hint;
+        font-size: 18px;
+        color: #ffffff;
+
+        -webkit-transition-duration: 0.4s;
+    }
+    #loadVideo:hover {
+        color: #F85963;
+        background-color: #ffffff; 
+    }
+
+
+    @font-face {
+        font-family: title;
+        src: url(./fonts/BIGJOHN.otf);
+    }
+    @font-face {
+        font-family: hint;
+        src: url(./fonts/JosefinSans.ttf);
+    }
+    </style>
 </head>
 <body>
     <div id="input" >
-        <center>
-            <br><br>
-            ENTER THE YOUTUBE URL OR LOCAL MP4 VIDEO LOCATION
-            <br><br><br>
-            <input id="videoUrl" type="text" placeholder="URL here...">
-            <button id="loadVideo" onclick="fetchURL()">Play</button>
-            <br><br><br>
-            <p style="font-size: 13px; color: gray;">Hint: Youtube Url as : https://www.youtube.com/watch?v=kN1Czs0m1SU<br>
-            Local Video Url as : C:\Videos\abc.mp4</p>
             <br>
+            <img src="./images/icon.png">
+            <h1>ENTER URL.<br>PLAY.<br>ENJOY.<br></h1>
+            <center>
+            <p>Click on the play button to open video</p>
+            <input id="videoUrl" type="text" placeholder="URL Here...">
+            <br>
+            <button id="loadVideo" onclick="fetchURL()">Play</button>
+            <br><br><br><br>
+            <footer>
+            <p>Hint: Youtube Url as: https://www.youtube.com/watch?v=kN1Czs0m1SU
+            <br>Local Video Url as: C:\Videos\abc.mp4</p>
+            </footer>
         </center>
     </div>
 </body>
@@ -24,7 +88,6 @@
     var videoUrl;
     function fetchURL() {
         videoUrl = document.getElementById('videoUrl').value;
-        // document.getElementById('video').setAttribute('src', videoUrl);
         ipcRenderer.send('video:url', videoUrl);
     }
 </script>
