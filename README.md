@@ -9,11 +9,7 @@ This is a desktop application built to view online or offline videos in resizabl
 #### For Windows OS:
 Click [here](https://github.com/swatish17/video-dock/raw/master/dist/VideoDock%20Setup%201.0.0.exe) to download the setup file. Install the setup file to run the application.
 
-#### For Ubuntu:
-Click [here](https://github.com/swatish17/video-dock/raw/master/dist/VideoDocker-1.0.0-x86_64.AppImage) to download the AppImage file and run the application.
-
 ## Steps to start
-
 
 ### Prerequisites
 To start with this application, we need to install the Node JS and Node Package Manager (npm) which can be downloaded from this [link](https://nodejs.org). 
